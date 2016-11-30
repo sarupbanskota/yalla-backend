@@ -37,3 +37,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'knock', '~> 2.0'
 gem "active_model_serializers", "~> 0.10.2"
+gem 'consul'
