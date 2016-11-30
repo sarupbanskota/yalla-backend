@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129164118) do
+ActiveRecord::Schema.define(version: 20161130182227) do
 
   create_table "requests", force: :cascade do |t|
     t.string   "from"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161129164118) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "auth_id"
+    t.string   "role"
   end
 
 end
