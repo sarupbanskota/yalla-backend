@@ -5,4 +5,8 @@ class User < ApplicationRecord
       self.find_or_create_by auth_id: payload['sub']
     end
   end
+
+  def owner?
+    self.role == 'owner'
+  end
 end

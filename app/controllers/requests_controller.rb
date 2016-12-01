@@ -4,8 +4,6 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = Request.all
-
     render json: @requests
   end
 
@@ -42,7 +40,9 @@ class RequestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
-      @request = Request.find(params[:id])
+      power = Power.new current_user
+      @requests = power.requests
+      @request = @requests.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
