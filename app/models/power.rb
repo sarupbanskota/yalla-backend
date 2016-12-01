@@ -13,7 +13,15 @@ class Power
     if @user.owner?
       Request.all
     else
-      Request.where user_id: @user.id
+      Request.where user: @user
+    end
+  end
+
+  power :activities do
+    if @user.owner?
+      Acitivity.all
+    else
+      Activity.where user: @user
     end
   end
 end
