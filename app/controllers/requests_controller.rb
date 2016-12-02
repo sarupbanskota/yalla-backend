@@ -14,7 +14,8 @@ class RequestsController < ApplicationController
 
   # POST /requests
   def create
-    @request = Request.new(request_params)
+    @request = Request.new request_params
+    @request.user = current_user
 
     if @request.save
       render json: @request, status: :created, location: @request
@@ -26,6 +27,7 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   def update
     if @request.update(request_params)
+      puts request_params + "hello"
       render json: @request
     else
       render json: @request.errors, status: :unprocessable_entity
@@ -49,6 +51,6 @@ class RequestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def request_params
-      params.require(:request).permit(:from, :to, :description, :status)
+      params.require(:data).permit(:attributes => [:from, :to, :description, :status])
     end
 end
