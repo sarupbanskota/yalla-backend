@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user
-  before_action :set_request, only: [:show, :update, :destroy]
+  before_action :set_request, only: [:index, :show, :update, :destroy]
 
   # GET /requests
   def index
@@ -42,7 +42,9 @@ class RequestsController < ApplicationController
     def set_request
       power = Power.new current_user
       @requests = power.requests
-      @request = @requests.find(params[:id])
+      if params[:id]
+        @request = @requests.find(params[:id])
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

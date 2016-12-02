@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :update, :destroy]
 
   # GET /users
   def index
@@ -41,7 +41,9 @@ class UsersController < ApplicationController
     def set_user
       power = Power.new current_user
       @users = power.users
-      @user = @users.find(params[:id])
+      if params[:id]
+        @user = @users.find(params[:id])
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
