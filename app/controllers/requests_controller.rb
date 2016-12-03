@@ -4,6 +4,9 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
+    @requests.each do |request|
+      request.requested_by = request.user.id
+    end
     render json: @requests
   end
 
