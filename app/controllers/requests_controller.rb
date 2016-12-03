@@ -29,10 +29,14 @@ class RequestsController < ApplicationController
 
   # PATCH/PUT /requests/1
   def update
-    if @request.update(request_params)
-      render json: @request
+    if @request
+      if @request.update(request_params)
+        render json: @request
+      else
+        render json: @request.errors, status: :unprocessable_entity
+      end
     else
-      render json: @request.errors, status: :unprocessable_entity
+      render json: { :errors => ["Forbidden"] }
     end
   end
 
@@ -45,8 +49,13 @@ class RequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       power = Power.new current_user
-      @requests = power.requests
-      if params[:id]
+      if action_name == 'update'
+        @requests = power.patchable_requests
+      else
+        @requests = power.requests
+      end
+      
+      if @requests && params[:id]
         @request = @requests.find(params[:id])
       end
     end

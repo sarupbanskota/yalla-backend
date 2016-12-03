@@ -17,6 +17,14 @@ class Power
     end
   end
 
+  power :patchable_requests do
+    if @user.owner?
+      Request.all
+    else
+      nil
+    end
+  end
+
   power :activities do
     if @user.owner?
       Acitivity.all
