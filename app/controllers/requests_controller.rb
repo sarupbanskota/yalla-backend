@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   # GET /requests
   def index
     @requests.each do |request|
-      request.requested_by = request.user.id
+      request.requested_by = request.username
     end
     render json: @requests
   end
@@ -53,6 +53,6 @@ class RequestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def request_params
-      params.require(:data).permit(:attributes => [:from, :to, :description, :status])
+      params.require(:data).permit(:attributes => [:from, :to, :description, :status, :username])
     end
 end
