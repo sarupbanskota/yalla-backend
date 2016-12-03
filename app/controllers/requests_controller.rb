@@ -30,7 +30,6 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   def update
     if @request.update(request_params)
-      puts request_params + "hello"
       render json: @request
     else
       render json: @request.errors, status: :unprocessable_entity
