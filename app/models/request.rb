@@ -4,6 +4,9 @@ class Request < ApplicationRecord
   assignable_values_for :status do
     ['Pending', 'Accepted', 'Rejected']
   end
+
+  scope :status, -> (status) { where status: status}
+  scope :username, -> (username) { where username: username }
   
   belongs_to :user
   has_many :activities

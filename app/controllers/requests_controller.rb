@@ -4,6 +4,8 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
+    @requests = @requests.status(params[:status]) if params[:status].present?
+    @requests = @requests.username(params[:username]) if params[:username].present?
     @requests.each do |request|
       request.requested_by = request.username
     end
@@ -54,7 +56,7 @@ class RequestsController < ApplicationController
       else
         @requests = power.requests
       end
-      
+
       if @requests && params[:id]
         @request = @requests.find(params[:id])
       end
