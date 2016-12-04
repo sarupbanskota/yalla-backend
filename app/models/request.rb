@@ -6,8 +6,8 @@ class Request < ApplicationRecord
   end
 
   scope :status, -> (status) { where status: status}
-  scope :username, -> (username) { where username: username }
-  
+  scope :username, -> (username) { where("username like ?", "%#{username}%") }
+
   belongs_to :user
   has_many :activities
 end
