@@ -74,6 +74,10 @@ GEM
       edge_rider (>= 0.3.0)
       memoizer
       rails
+    countries (2.0.5)
+      i18n_data (~> 0.7.0)
+      money (~> 6.7)
+      unicode_utils (~> 1.4)
     edge_rider (0.3.1)
       activerecord
     erubis (2.7.0)
@@ -81,6 +85,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     jsonapi (0.1.1.beta6)
       jsonapi-parser (= 0.1.1.beta3)
       jsonapi-renderer (= 0.1.1.beta1)
@@ -105,6 +110,9 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    money (6.7.1)
+      i18n (>= 0.6.4, <= 0.7.0)
+      sixarm_ruby_unaccent (>= 1.1.1, < 2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.0.0)
@@ -144,6 +152,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    sixarm_ruby_unaccent (1.1.1)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -164,6 +173,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unicode_utils (1.4.0)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -180,6 +190,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.2)
   capistrano-rvm
   consul (= 0.12.1)
+  countries
   knock (~> 2.0)
   listen (~> 3.0.5)
   pg
