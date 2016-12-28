@@ -6,7 +6,19 @@ class Power
   end
 
   power :users do
-    User.all
+    if @user.owner?
+      User.all
+    else
+      User.where id: @user.id
+    end
+  end
+
+  power :patchable_users do
+    if @user.owner?
+      User.all
+    else
+      User.where user: @user
+    end
   end
 
   power :requests do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203144523) do
+ActiveRecord::Schema.define(version: 20161228004027) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "request_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20161203144523) do
     t.datetime "updated_at",      null: false
     t.string   "auth_id"
     t.string   "role"
+    t.string   "email"
   end
 
 end
