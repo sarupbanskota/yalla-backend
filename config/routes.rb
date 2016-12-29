@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :timezones
   resources :countries
   resources :activities
   resources :requests

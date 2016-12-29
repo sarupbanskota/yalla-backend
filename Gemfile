@@ -46,3 +46,4 @@ gem "active_model_serializers", "~> 0.10.2"
 gem 'consul', "0.12.1"
 gem 'assignable_values'
 gem 'countries', :require => 'countries/global'
+gem 'tzinfo'
