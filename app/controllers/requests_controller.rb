@@ -4,10 +4,10 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = @requests.status(params[:status]) if params[:status].present?
-    @requests = @requests.username(params[:username]) if params[:username].present?
+    @requests = @requests.status(params[:status])  if params[:status].present?
+    @requests = @requests.search(params[:username]) if params[:username].present?
     @requests.each do |request|
-      request.requested_by = request.username
+      request.requested_by = request.user.email.split('@').first.split('.').join(" ").titleize
     end
     render json: @requests
   end
