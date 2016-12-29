@@ -10,8 +10,7 @@ class TimezonesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_request
-    @timezones = TZInfo::Timezone.all.map { |t| t.friendly_identifier(true) }.sort
-
+    @timezones = TZInfo::Timezone.all.map { |t| [t.friendly_identifier(true), t.identifier] }.sort
     if @timezones && params[:id]
       @timezone = @timezone.find(params[:id])
     end
