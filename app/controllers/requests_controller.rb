@@ -8,6 +8,7 @@ class RequestsController < ApplicationController
     @requests = @requests.search(params[:username]) if params[:username].present?
     @requests.each do |request|
       request.requested_by = request.user.email.split('@').first.split('.').join(" ").titleize
+      request.requested_by_avatar = request.user.avatar
     end
     render json: @requests
   end

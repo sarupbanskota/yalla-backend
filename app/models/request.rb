@@ -1,5 +1,5 @@
 class Request < ApplicationRecord
-  attr_accessor :requested_by
+  attr_accessor :requested_by, :requested_by_avatar
   belongs_to :user
   has_many :activities
 
