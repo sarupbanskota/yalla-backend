@@ -13,6 +13,27 @@ class RequestsController < ApplicationController
     render json: @requests
   end
 
+  def calendar_events
+    data = []
+    Team.users.each do |user|
+      user.bookings.each do |booking|
+        if booking.request.id == ongoing_request.id
+          calendar_event.to = booking.to
+        else
+          data[user.email].requests << calendar_event
+          # create new calendar event
+          ongoing_request = booking.request
+          calendar_event = {
+            from:        ongoing_request.date,
+            to:          ongoing_request.date,
+            description: ongoing_request.request.description,
+            type:        ongoing_request.request.type
+          }
+        end
+      end
+    end
+  end
+
   # GET /requests/1
   def show
     render json: @request
