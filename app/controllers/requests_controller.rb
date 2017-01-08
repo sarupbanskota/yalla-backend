@@ -19,14 +19,15 @@ class RequestsController < ApplicationController
     data = []
     User.all.each do |user|
       requests = []
-      u.requests.each do |request|
+      user.requests.each do |request|
         requests << {
           from:        request.from,
           to:          request.to,
           description: request.description,
         }
       end
-      data << { user: user.email }
+      username = user.email.split('@').first.split('.').join(' ')
+      data << { username: username, requests: requests }
     end
 
     render json: data
