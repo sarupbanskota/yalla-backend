@@ -27,10 +27,10 @@ class RequestsController < ApplicationController
         }
       end
       data << {
-        username: user.email.split('@').first.split('.').join(" ").titleize,
-        avatar:   user.avatar,
-        email:    user.email,
-        requests: requests,
+        username:   user.email.split('@').first.split('.').join(" ").titleize,
+        avatar:     user.avatar,
+        identifier: user.email.split('@').first.split('.').first,
+        requests:   requests,
       }
     end
 
