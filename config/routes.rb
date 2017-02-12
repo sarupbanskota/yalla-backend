@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get ':controller/:action'
-  
+  get 'requests/calendar_events' => 'requests#calendar_events'
+
   resources :timezones
   resources :countries
   resources :activities
