@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229032044) do
+ActiveRecord::Schema.define(version: 20170212030413) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "request_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20161229032044) do
     t.string   "timezone"
     t.string   "avatar"
     t.string   "country"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end
