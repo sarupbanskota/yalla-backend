@@ -48,5 +48,9 @@ class Power
   power :categories do
     Category.all
   end
-  
+
+  power :patchable_categories do
+    Category.all
+  end
+
 end
