@@ -44,4 +44,9 @@ class Power
       Activity.where user: @user
     end
   end
+
+  power :categories do
+    Category.all
+  end
+  
 end
